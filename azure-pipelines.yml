@@ -20,21 +20,21 @@ stages:
     - task: NuGetCommand@2
       inputs:
         command: 'restore'
-        restoreSolution: '**/*.sln'
+        restoreSolution: '**/*.csproj'
         feedsToUse: 'select'
     - task: DotNetCoreCLI@2
       inputs:
         command: 'restore'
-        projects: '**/*.sln'
+        projects: '**/*.csproj'
         feedsToUse: 'select'
     - task: DotNetCoreCLI@2
       inputs:
         command: 'build'
-        projects: '**/*.sln'
+        projects: '**/*.csproj'
     - task: DotNetCoreCLI@2
       inputs:
         command: 'test'
-        projects: '**/*.sln'
+        projects: '**/*.csproj'
     - task: PublishBuildArtifacts@1
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
